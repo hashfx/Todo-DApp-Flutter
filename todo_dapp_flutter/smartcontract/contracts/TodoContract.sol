@@ -23,7 +23,14 @@ contract TodoContract {
     // function to create task from Task struct
     function createTask(string memory _taskName) public {
         todos[taskCount] = Task(taskCount, _taskName, false);
-        taskCount++;  // increase count of task by 1
+        taskCount++; // increase count of task by 1
         emit TaskCreated(_taskName, taskCount - 1);
+    }
+
+    // function to update task data w.r.t. taskId
+    function updateTask(uint256 _taskId, string memory _taskName) public {
+        Task memory currTask = todos[_taskId];
+        todos[_taskId] = Task(_taskId, _taskName, currTask.isComplete);  // replace updated task to that of previous task in mapping
+        emit TaskUpdated(_taskName, _taskId);
     }
 }
