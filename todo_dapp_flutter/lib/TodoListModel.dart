@@ -17,6 +17,8 @@ class TodoListModel extends ChangeNotifier {
   final String _privateKey =
       "0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d";
 
+  final String _publicKey = "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1";
+
   late Web3Client _client;
   late String _abiCode;
 
@@ -52,12 +54,13 @@ class TodoListModel extends ChangeNotifier {
     var jsonAbi = jsonDecode(abiStringFile);
     _abiCode = jsonEncode(jsonAbi["abi"]);
     _contractAddress =
-        EthereumAddress.fromHex(jsonAbi["networks"]["5777"]["address"]);
+        EthereumAddress.fromHex(jsonAbi["networks"]["8545"]["0xCfEB869F69431e42cdB54A4F4f105C19C080A601"]);
   }
 
   Future<void> getCredentials() async {
-    _credentials = await _client.credentialsFromPrivateKey(_privateKey);
-    _ownAddress = await _credentials.extractAddress();
+    _credentials = EthPrivateKey.fromHex(_privateKey);
+    _ownAddress =
+        EthereumAddress.fromHex(_publicKey);
   }
 
   Future<void> getDeployedContract() async {
