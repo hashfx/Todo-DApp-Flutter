@@ -19,4 +19,11 @@ contract TodoContract {
     event TaskUpdated(string task, uint256 taskId);
     event TaskIsCompleteToggled(string task, uint256 taskId, bool isComplete);
     event TaskDeleted(uint256 taskNumber);
+
+    // function to create task from Task struct
+    function createTask(string memory _taskName) public {
+        todos[taskCount] = Task(taskCount, _taskName, false);
+        taskCount++;  // increase count of task by 1
+        emit TaskCreated(_taskName, taskCount - 1);
+    }
 }
