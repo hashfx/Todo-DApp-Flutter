@@ -1,12 +1,16 @@
 module.exports = {
   networks: {
     development: {
-      host: "localhost",
+      host: "127.0.0.1",
       port: 8545,
       network_id: "*",
     },
+    advanced: {
+      websocket: true,
+    },
   },
   contracts_directory: "./contracts",
+  contract_build_directory: "./build/contracts/",
   compilers: {
     solc: {
       optimizer: {
@@ -14,9 +18,5 @@ module.exports = {
         runs: 200,
       },
     },
-  },
-
-  db: {
-    enabled: false,
   },
 };
