@@ -54,7 +54,7 @@ class TodoListModel extends ChangeNotifier {
     var jsonAbi = jsonDecode(abiStringFile);
     _abiCode = jsonEncode(jsonAbi["abi"]);
     _contractAddress =
-        EthereumAddress.fromHex(jsonAbi["networks"]["8545"]["0xCfEB869F69431e42cdB54A4F4f105C19C080A601"]);
+        EthereumAddress.fromHex(jsonAbi["networks"]["8545"]["0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"]);
   }
 
   Future<void> getCredentials() async {
