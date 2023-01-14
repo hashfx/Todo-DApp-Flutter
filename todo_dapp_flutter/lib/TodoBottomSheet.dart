@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_dapp_flutter/TodoListModel.dart';
 
-showTodoBottomSheet(BuildContext context, {required Task task}) {
+showTodoBottomSheet(BuildContext context, {Task? task}) {
   TextEditingController _titleController =
       TextEditingController(text: task?.taskName ?? "");
   var listModel = Provider.of<TodoListModel>(context, listen: false);
