@@ -29,8 +29,14 @@ contract TodoContract {
 
     // function to update task data w.r.t. taskId
     function updateTask(uint256 _taskId, string memory _taskName) public {
-        Task memory currTask = todos[_taskId];  // save data of current task in a variable
-        todos[_taskId] = Task(_taskId, _taskName, currTask.isComplete);  // replace updated task to that of previous task in mapping
+        Task memory currTask = todos[_taskId]; // save data of current task in a variable
+        todos[_taskId] = Task(_taskId, _taskName, currTask.isComplete); // replace updated task to that of previous task in mapping
         emit TaskUpdated(_taskName, _taskId);
+    }
+
+    // function to delete task w.r.t. taskId
+    function deleteTask(uint256 _taskId) public {
+        delete todos[_taskId]; // delete task object from todos mapping
+        emit TaskDeleted(_taskId);
     }
 }
