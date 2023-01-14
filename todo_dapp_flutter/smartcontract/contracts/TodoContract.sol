@@ -39,4 +39,16 @@ contract TodoContract {
         delete todos[_taskId]; // delete task object from todos mapping
         emit TaskDeleted(_taskId);
     }
+
+    //
+    function toggleComplete(uint256 _taskId) public {
+        Task memory currTask = todos[_taskId]; // fetch task object from todos map
+        todos[_taskId] = Task(_taskId, currTask.taskName, !currTask.isComplete); // create a new task with updated isComplete value
+
+        emit TaskIsCompleteToggled(
+            currTask.taskName,
+            _taskId,
+            !currTask.isComplete
+        );
+    }
 }
