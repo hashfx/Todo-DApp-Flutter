@@ -18,6 +18,6 @@ tasks:
     /home/gitpod/android-sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-28" "build-tools;28.0.3"
 vscode:
   extensions:
-    - Dart-Code.flutter@3.5.0:/kOacEWdiDRLyN/idUiM4A==
     - Dart-Code.flutter
-    - juanblanco.solidity
+    - Dart-Code.dart-code
+    - JuanBlanco.solidity
