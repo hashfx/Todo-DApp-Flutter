@@ -1,15 +1,5 @@
 image:
   file: .gitpod.dockerfile
-github:
-  prebuilds:
-    master: true
-    branches: false
-    pullRequests: true
-    pullRequestsFromForks: false
-    addCheck: false
-    addComment: true
-    addBadge: false
-    addLabel: false
 tasks:
 - command: |
     mkdir -p /home/gitpod/.android
